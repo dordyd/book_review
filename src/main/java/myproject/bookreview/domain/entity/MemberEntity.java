@@ -1,10 +1,13 @@
-package myproject.bookreview.domain.user.entity;
+package myproject.bookreview.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.*;
-import myproject.bookreview.domain.user.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import myproject.bookreview.domain.Gender;
 
 @Entity
 @Getter
@@ -16,7 +19,7 @@ public class MemberEntity {
     @Id
     private Long userId;
 
-    private String username, password, nickname;
+    private String memberId, username, nickname, password;
     private Integer age;
     private Gender gender;
 }

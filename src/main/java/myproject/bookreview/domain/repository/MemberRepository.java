@@ -1,6 +1,6 @@
 package myproject.bookreview.domain.repository;
 
-import myproject.bookreview.domain.user.entity.MemberEntity;
+import myproject.bookreview.domain.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

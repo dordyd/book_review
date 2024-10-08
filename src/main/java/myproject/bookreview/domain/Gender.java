@@ -1,4 +1,4 @@
-package myproject.bookreview.domain.user;
+package myproject.bookreview.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

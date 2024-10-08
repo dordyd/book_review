@@ -1,12 +1,12 @@
-package myproject.bookreview.domain.user.dao;
+package myproject.bookreview.domain.dao;
 
+import myproject.bookreview.domain.entity.MemberEntity;
 import myproject.bookreview.domain.repository.MemberRepository;
-import myproject.bookreview.domain.user.entity.MemberEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberDaoImpl implements MemberDAO{
+public class MemberDaoImpl implements MemberDAO {
     MemberRepository memberRepository;
 
     @Autowired

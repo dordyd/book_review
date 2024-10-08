@@ -1,16 +1,14 @@
-package myproject.bookreview.domain.user.controller;
+package myproject.bookreview.domain.controller;
 
 import lombok.RequiredArgsConstructor;
-import myproject.bookreview.domain.user.Gender;
-import myproject.bookreview.domain.user.dao.MemberDAO;
-import myproject.bookreview.domain.user.dto.MemberDTO;
-import myproject.bookreview.domain.user.entity.MemberEntity;
-import myproject.bookreview.domain.user.service.MemberService;
-import myproject.bookreview.domain.user.service.MemberServiceImpl;
+import lombok.extern.slf4j.Slf4j;
+import myproject.bookreview.domain.dto.MemberDTO;
+import myproject.bookreview.domain.service.MemberService;
+import myproject.bookreview.domain.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
+@Slf4j
 @RestController
 @RequestMapping("/member")
 @RequiredArgsConstructor
@@ -42,7 +40,7 @@ public class MemberController {
     @PostMapping("/sign-up")
     public MemberDTO memgerSignUp(@RequestBody MemberDTO memberDTO){
 
-        Long userId = memberDTO.getUserId();
+        String memberId = memberDTO.getMemberId();
         String username = memberDTO.getUsername();
         String nickname = memberDTO.getNickname();
         String password = memberDTO.getPassword();
@@ -52,10 +50,16 @@ public class MemberController {
 //        MemberEntity member = new MemberEntity(userId, username,
 //                password, nickname, age, gender);
 
-        return memberService.saveMember(userId, username, nickname,
+        return memberService.saveMember(memberId, username, nickname,
                 password, age, gender);
     }
 //    @GetMapping
+
+    @GetMapping("/getMemberId/{userId}")
+    public MemberDTO findMember(@PathVariable Long userId){
+        log.info("Controller // id={}", userId);
+        return memberService.findMemberByName(userId);
+    }
 
 
 }

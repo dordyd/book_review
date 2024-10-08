@@ -1,18 +1,18 @@
-package myproject.bookreview.domain.user.dto;
+package myproject.bookreview.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import myproject.bookreview.domain.user.Gender;
-import myproject.bookreview.domain.user.entity.MemberEntity;
+import myproject.bookreview.domain.Gender;
 
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 public class MemberDTO {
-    private Long userId;
+//    private Long userId;
+    private String memberId;
     private String username;
     private String nickname;
     private String password;
