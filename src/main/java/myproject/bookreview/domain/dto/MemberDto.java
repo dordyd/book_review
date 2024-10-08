@@ -1,14 +1,12 @@
 package myproject.bookreview.domain.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import myproject.bookreview.domain.Gender;
 
 @Data
 @AllArgsConstructor
-public class MemberDTO {
+public class MemberDto {
 //    private Long userId;
     private String memberId;
     private String username;

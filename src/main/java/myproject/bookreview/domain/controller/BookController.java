@@ -1,21 +1,28 @@
 package myproject.bookreview.domain.controller;
 
-import myproject.bookreview.domain.dto.BookDTO;
-import myproject.bookreview.domain.handler.BookDataHandler;
+import lombok.RequiredArgsConstructor;
+import myproject.bookreview.domain.dto.BookDto;
+import myproject.bookreview.domain.service.BookService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
+
 @RestController
 @RequestMapping("/book")
+@RequiredArgsConstructor
 public class BookController {
 
-    BookService
+    private final BookService bookService;
 
+    @PostMapping("/addBook")
+    public BookDto addBook(@RequestBody BookDto bookDTO){
+        String bookName = bookDTO.getBookName();
+        String author = bookDTO.getAuthor();
+//        Instant createdAt = bookDTO.getCreatedAt();
 
-    @PostMapping("/add-Book")
-    public BookDTO addBook(@RequestBody BookDTO bookDTO){
-
+        return bookService.bookSave(bookDTO);
     }
 }

@@ -14,14 +14,15 @@ import java.time.Instant;
 public class BookEntity {
 
     @Id
-    private Long id;
+    private Long bookId;
 
     private String bookName;
     private String author;
     private Instant createdAt;
 
     @Builder
-    public BookEntity(String bookName, String author, Instant createdAt){
+    public BookEntity(Long bookId, String bookName, String author, Instant createdAt){
+        this.bookId = bookId;
         this.bookName = bookName;
         this.author = author;
         this.createdAt = createdAt;

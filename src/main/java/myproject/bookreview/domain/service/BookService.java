@@ -1,12 +1,12 @@
 package myproject.bookreview.domain.service;
 
-import myproject.bookreview.domain.dto.BookDTO;
+import myproject.bookreview.domain.dto.BookDto;
 
 public interface BookService {
 
-    BookDTO bookSave(BookDTO bookDTO);
+    BookDto bookSave(BookDto bookDTO);
 
-    BookDTO bookFind(String bookName);
+    BookDto bookFind(String bookName);
 
-    BookDTO bookList();
+    BookDto bookList();
 }

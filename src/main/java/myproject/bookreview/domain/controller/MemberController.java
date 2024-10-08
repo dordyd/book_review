@@ -2,7 +2,7 @@ package myproject.bookreview.domain.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import myproject.bookreview.domain.dto.MemberDTO;
+import myproject.bookreview.domain.dto.MemberDto;
 import myproject.bookreview.domain.service.MemberService;
 import myproject.bookreview.domain.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class MemberController {
 //                password, age, gender);
 //    }
     @PostMapping("/sign-up")
-    public MemberDTO memgerSignUp(@RequestBody MemberDTO memberDTO){
+    public MemberDto memgerSignUp(@RequestBody MemberDto memberDTO){
 
         String memberId = memberDTO.getMemberId();
         String username = memberDTO.getUsername();
@@ -56,7 +56,7 @@ public class MemberController {
 //    @GetMapping
 
     @GetMapping("/getMemberId/{userId}")
-    public MemberDTO findMember(@PathVariable Long userId){
+    public MemberDto findMember(@PathVariable Long userId){
         log.info("Controller // id={}", userId);
         return memberService.findMemberByName(userId);
     }

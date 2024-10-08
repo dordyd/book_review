@@ -2,7 +2,7 @@ package myproject.bookreview.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import myproject.bookreview.domain.dto.MemberDTO;
+import myproject.bookreview.domain.dto.MemberDto;
 import myproject.bookreview.domain.entity.MemberEntity;
 import myproject.bookreview.domain.handler.MemberDataHandler;
 import myproject.bookreview.domain.Gender;
@@ -22,11 +22,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO saveMember(String memberId, String username, String nickname, String password, int age, Gender gender) {
+    public MemberDto saveMember(String memberId, String username, String nickname, String password, int age, Gender gender) {
         MemberEntity memberEntity = memberDataHandler.saveMemberEntity(memberId, username,
                 nickname, password, age, gender);
 
-        MemberDTO memberDTO = new MemberDTO(
+        MemberDto memberDTO = new MemberDto(
                 memberEntity.getMemberId(),
                 memberEntity.getUsername(),
                 memberEntity.getNickname(),
@@ -38,10 +38,10 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO findMemberByName(Long userId) {
+    public MemberDto findMemberByName(Long userId) {
         MemberEntity memberEntity = memberDataHandler.findMember(userId);
 
-        MemberDTO memberDTO = new MemberDTO(
+        MemberDto memberDTO = new MemberDto(
                 memberEntity.getMemberId(),
                 memberEntity.getUsername(),
                 memberEntity.getNickname(),

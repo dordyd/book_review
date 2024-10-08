@@ -3,7 +3,7 @@ package myproject.bookreview.domain.dao;
 import myproject.bookreview.domain.entity.MemberEntity;
 
 
-public interface MemberDAO {
+public interface MemberDao {
 
     MemberEntity saveMember(MemberEntity member);
 

@@ -1,8 +1,7 @@
 package myproject.bookreview.domain.handler;
 
 import jakarta.transaction.Transactional;
-import myproject.bookreview.domain.dao.MemberDAO;
-import myproject.bookreview.domain.dto.MemberDTO;
+import myproject.bookreview.domain.dao.MemberDao;
 import myproject.bookreview.domain.entity.MemberEntity;
 import myproject.bookreview.domain.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class MemberDataHandlerImpl implements MemberDataHandler {
 
-    MemberDAO memberDAO;
+    MemberDao memberDAO;
     private Long sequence = 0L;
 
     @Autowired
-    public MemberDataHandlerImpl(MemberDAO memberDAO) {
+    public MemberDataHandlerImpl(MemberDao memberDAO) {
         this.memberDAO = memberDAO;
     }
 
