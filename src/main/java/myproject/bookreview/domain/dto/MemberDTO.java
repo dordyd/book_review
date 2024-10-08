@@ -7,9 +7,7 @@ import lombok.RequiredArgsConstructor;
 import myproject.bookreview.domain.Gender;
 
 @Data
-@RequiredArgsConstructor
 @AllArgsConstructor
-@Builder
 public class MemberDTO {
 //    private Long userId;
     private String memberId;

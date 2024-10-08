@@ -21,9 +21,19 @@ public class MemberDataHandlerImpl implements MemberDataHandler {
     }
 
     @Override
-    public MemberEntity saveMemberEntity(String memberId, String username, String nickname, String password, int age, Gender gender) {
-        MemberEntity memberEntity = new MemberEntity(++sequence, memberId, username,
-                nickname, password, age, gender);
+    public MemberEntity saveMemberEntity(String memberId, String username, String nickname,
+                                         String password, int age, Gender gender) {
+//        MemberEntity memberEntity = new MemberEntity(++sequence, memberId, username,
+//                nickname, password, age, gender);
+        MemberEntity memberEntity = MemberEntity.builder()
+                .userId(++sequence)
+                .memberId(memberId)
+                .username(username)
+                .nickname(nickname)
+                .password(password)
+                .age(age)
+                .gender(gender)
+                .build();
 
         return memberDAO.saveMember(memberEntity);
     }
