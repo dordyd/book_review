@@ -14,6 +14,7 @@ public class BookServiceImpl implements BookService{
 
     private final BookDataHandler bookDataHandler;
 
+    // 이건 왜 dto로 받았는지, 근데 오류는 안나는데 String으로 받을지는 고민 다시 해보자.
     @Override
     public BookDto bookSave(BookDto bookDTO) {
         String bookName = bookDTO.getBookName();

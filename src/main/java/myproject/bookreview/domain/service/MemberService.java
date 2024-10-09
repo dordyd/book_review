@@ -5,8 +5,7 @@ import myproject.bookreview.domain.Gender;
 
 public interface MemberService {
 
-    MemberDto saveMember(String memberId, String username, String nickname,
-                         String password, int age, Gender gender);
+    MemberDto saveMember(MemberDto memberDto);
 
     MemberDto findMemberByName(Long userId);
 }

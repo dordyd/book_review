@@ -16,10 +16,6 @@ public class MemberController {
 
     MemberService memberService;
 
-    @Autowired
-    public MemberController(MemberService memberService){
-        this.memberService = memberService;
-    }
 
 //    @PostMapping("/sign-up")
 //    public String memgerSignUp(@RequestBody MemberDTO memberDTO){
@@ -38,20 +34,8 @@ public class MemberController {
 //                password, age, gender);
 //    }
     @PostMapping("/sign-up")
-    public MemberDto memgerSignUp(@RequestBody MemberDto memberDTO){
-
-        String memberId = memberDTO.getMemberId();
-        String username = memberDTO.getUsername();
-        String nickname = memberDTO.getNickname();
-        String password = memberDTO.getPassword();
-        int age = memberDTO.getAge();
-        Gender gender = memberDTO.getGender();
-
-//        MemberEntity member = new MemberEntity(userId, username,
-//                password, nickname, age, gender);
-
-        return memberService.saveMember(memberId, username, nickname,
-                password, age, gender);
+    public MemberDto memberSignUp(@RequestBody MemberDto memberDTO){
+        return memberService.saveMember(memberDTO);
     }
 //    @GetMapping
 

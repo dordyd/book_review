@@ -16,15 +16,9 @@ public class MemberServiceImpl implements MemberService {
 
     MemberDataHandler memberDataHandler;
 
-    @Autowired
-    public MemberServiceImpl(MemberDataHandler memberDataHandler) {
-        this.memberDataHandler = memberDataHandler;
-    }
-
     @Override
-    public MemberDto saveMember(String memberId, String username, String nickname, String password, int age, Gender gender) {
-        MemberEntity memberEntity = memberDataHandler.saveMemberEntity(memberId, username,
-                nickname, password, age, gender);
+    public MemberDto saveMember(MemberDto memberDto) {
+        MemberEntity memberEntity = memberDataHandler.saveMemberEntity(memberDto);
 
         MemberDto memberDTO = new MemberDto(
                 memberEntity.getMemberId(),
