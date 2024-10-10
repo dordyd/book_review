@@ -1,10 +1,10 @@
 package myproject.bookreview.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
+import myproject.bookreview.domain.Genre;
 
 import java.time.Instant;
 
@@ -13,16 +13,20 @@ import java.time.Instant;
 @ToString
 public class BookEntity {
 
-    @Id
-    private Long bookId;
+    @Id @GeneratedValue
+    @Column(name = "book_id")
+    private Long id;
 
     private String bookName;
     private String author;
     private Instant createdAt;
 
+    @Enumerated(EnumType.STRING)
+    private Genre genre;
+
     @Builder
-    public BookEntity(Long bookId, String bookName, String author, Instant createdAt){
-        this.bookId = bookId;
+    public BookEntity(Long id, String bookName, String author, Instant createdAt){
+        this.id = id;
         this.bookName = bookName;
         this.author = author;
         this.createdAt = createdAt;

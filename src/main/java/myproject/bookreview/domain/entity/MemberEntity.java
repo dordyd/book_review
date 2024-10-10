@@ -1,10 +1,9 @@
 package myproject.bookreview.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import myproject.bookreview.domain.Gender;
+import myproject.bookreview.domain.Genre;
 
 @Entity
 @Getter
@@ -12,18 +11,23 @@ import myproject.bookreview.domain.Gender;
 @NoArgsConstructor
 @ToString
 public class MemberEntity {
-    @Id
-    private Long userId;
+    @Id @GeneratedValue
+    @Column(name = "member_id")
+    private Long id;
 
-    private String memberId, username, nickname, password;
+    private String username;
+    private String nickname;
+    private String password;
     private Integer age;
+    private Gender gender;
+
+    @Enumerated(EnumType.ORDINAL)
     private Gender gender;
 
 
     @Builder
-    public MemberEntity(Long userId, String memberId, String username, String nickname, String password, Integer age, Gender gender) {
-        this.userId = userId;
-        this.memberId = memberId;
+    public MemberEntity(Long id, String username, String nickname, String password, Integer age, Gender gender) {
+        this.id = id;;
         this.username = username;
         this.nickname = nickname;
         this.password = password;
